@@ -26,13 +26,17 @@ function greeting(yourName) {
     console.log(result);
 }
 
+/*
 var name = prompt('What is your name?');
 greeting(name);
+
+*/
 
 // fun();
 
 // How do arguments work in functions?
 
+/*
 function sumNumbers(num1, num2){
     var result = num1 + num2;
     console.log(result);
@@ -42,11 +46,52 @@ sumNumbers(10, 10);
 
 var num = 0;
 
-while (num < 100) {
+while (num < 50) {
     num += 10;
     console.log(num);
 }
 
-for (let num = 0; num <= 100; num += 10) {
+for (let num = 0; num <= 50; num += 10) {
     console.log(num);
 }
+*/
+
+// Data types
+
+let yourAge = 18;
+let yourName = 'Rob';
+let name = {first: 'John', last: 'Doe'};
+let truth = false; 
+let groceries = ['apple', 'banana', 'oranges'];
+let random;             // undefined
+let nothing = null;     // value null
+
+// Strings in JS (common methods)
+
+let fruit = 'banana';
+let moreFruits = 'banana\napple';
+
+console.log(fruit.length);
+
+// Array 
+
+let fruits = ['banana', 'apple', 'orange', 'pineapples'];
+fruits = new Array('banana', 'apple', 'orange', 'pineapples');
+
+console.log(fruits[2]);
+
+fruits[0] = 'pear';
+console.log(fruits);
+
+// Array common methods
+console.log('to string', fruits.toString());
+console.log(fruits.join(' ? '));
+console.log(fruits.pop(), fruits);
+
+let vegetables = ['asparagus', 'tomato', 'broccoli'];
+let allGroceries = fruits.concat(vegetables); // combine arrays
+console.log(allGroceries);
+
+let someNumbers = [3, 6, 2, 8, 23, 565, 2, 324, 12];
+console.log(someNumbers.sort(function(a, b) {return b-a}));
+console.log(someNumbers.sort(function(a, b) {return a-b}));
