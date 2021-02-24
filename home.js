@@ -95,3 +95,38 @@ console.log(allGroceries);
 let someNumbers = [3, 6, 2, 8, 23, 565, 2, 324, 12];
 console.log(someNumbers.sort(function(a, b) {return b-a}));
 console.log(someNumbers.sort(function(a, b) {return a-b}));
+
+
+// Objects in JS
+
+let student = {
+    first: 'Balogh', 
+    last: 'Pete', 
+    age: 25, 
+    height: 178,
+    studentInfo: function (){
+        return this.first + '\n' + this.last + '\n' + this.age;
+    }
+};
+
+/* console.log(student.first);
+console.log(student.last);
+student.first = 'notBalogh';  // change value
+console.log(student.first); */
+student.age++;
+console.log(student.studentInfo());
+
+// Conditionals, Control flows (if else)
+
+var age = prompt('What is your age?');
+
+if ((age >= 18) && (age <= 35)){
+    status = 'target demo';
+    console.log(status);
+} else {
+    status = 'not my audience';
+    console.log(status);
+}
+
+// Switch statements
+
