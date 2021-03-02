@@ -1,14 +1,14 @@
 // Challenge 1: Your Age in Days
 
 var currentYear = new Date().getFullYear();
-function ageInDays() {
+var ageInDays = () => {
     var birthYear = prompt('What year were you born?');
     var year = currentYear - birthYear;
 
-    function countLeapYears(birthYear, currentYear) {
+    var countLeapYears = (birthYear, currentYear) => {
         var leapYearCount = 0;
         years = birthYear;
-        function isLeapYear(years) {
+        var isLeapYear = (years) => {
             return ((years % 4 == 0) && (years % 100 != 0)) || (years % 400 == 0);
         }
 
@@ -28,6 +28,15 @@ function ageInDays() {
     console.log(year * 365 + countLeapYears(birthYear, currentYear));
 }
 
-function reset() {
+const reset = () => {
     document.getElementById('ageInDays').remove();
+}
+
+// Challenge 2: Cat Generator
+
+const generateCat = () => {
+    var image = document.createElement('img');
+    var div = document.getElementById('flex-cat-gen');
+    image.src = "http://thecatapi.com/api/images/get?format=src&type=gif&size=small";
+    div.appendChild(image);
 }
