@@ -56,7 +56,7 @@ const rpsGame = (yourChoice) => {
   botChoice = numberToChoice(randToRpsInt());
   console.log(botChoice);
 
-  results = decideWinner(humanChoice, botChoice); // [0,5 , 0,5] draw
+  results = decideWinner(humanChoice, botChoice); // [0.5 , 0.5] draw
   console.log(results);
 
   message = finalMessage(results); // {message: 'You won!', 'color': 'green'}
@@ -74,7 +74,7 @@ var numberToChoice = (number) => {
 };
 
 var decideWinner = (yourChoice, computerChoice) => {
-  var rpsDatabase = {
+  const rpsDatabase = {
     rock: { scissors: 1, rock: 0.5, paper: 0 },
     paper: { scissors: 0, rock: 1, paper: 0.5 },
     scissors: { scissors: 0.5, rock: 0, paper: 1 },
@@ -133,3 +133,36 @@ var rpsFrontEnd = (humanImageChoice, botImageChoice, finalMessage) => {
   document.getElementById("flex-box-rps-div").appendChild(messageDiv);
   document.getElementById("flex-box-rps-div").appendChild(botDiv);
 };
+
+// Challenge 4: Change the color of all buttons!
+
+var all_buttons = document.getElementsByTagName("button");
+
+// duplicating all original buttons
+var copyAllButtons = [];
+for (let i = 0; i < all_buttons.length; i++) {
+  copyAllButtons.push(all_buttons[i].classList[1]);
+}
+
+
+
+const buttonColorChange = (buttonChange) => {
+    if (buttonChange.value === 'red') {
+        buttonsRed();
+    } else if (buttonChange.value === 'green'){
+        buttonsGreen();
+    } else if (buttonChange.value === 'reset'){
+        buttonsColorReset();
+    } else if (buttonChange.value === 'random') {
+        randomColors();
+    }
+}
+
+const buttonsRed = () => {
+    for (let i = 0; i < all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add('btn-danger');
+    }
+}
+
+
