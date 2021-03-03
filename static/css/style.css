@@ -5,6 +5,13 @@
     text-align: center;
 }
 
+.container-5 {
+    border: 1px solid black;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .flex-box-container-1, .flex-box-container-2, .flex-box-rps, .flex-box-pick-color {
     display: flex;
     border: 1px solid black;

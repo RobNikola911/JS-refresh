@@ -207,3 +207,7 @@ const buttonsBlue = () => {
     all_buttons[i].classList.add(all_colors[3]);
   }
 };
+
+
+// Challenge 5: BlackJack!
+
