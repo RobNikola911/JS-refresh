@@ -136,33 +136,74 @@ var rpsFrontEnd = (humanImageChoice, botImageChoice, finalMessage) => {
 
 // Challenge 4: Change the color of all buttons!
 
-var all_buttons = document.getElementsByTagName("button");
+let all_buttons = document.getElementsByTagName("button");
+let all_colors = ["btn-danger", "btn-success", "btn-warning", "btn-primary"];
 
 // duplicating all original buttons
-var copyAllButtons = [];
+let copyAllButtons = [];
 for (let i = 0; i < all_buttons.length; i++) {
   copyAllButtons.push(all_buttons[i].classList[1]);
 }
 
-
-
 const buttonColorChange = (buttonChange) => {
-    if (buttonChange.value === 'red') {
-        buttonsRed();
-    } else if (buttonChange.value === 'green'){
-        buttonsGreen();
-    } else if (buttonChange.value === 'reset'){
-        buttonsColorReset();
-    } else if (buttonChange.value === 'random') {
-        randomColors();
-    }
-}
+  if (buttonChange.value === "red") {
+    buttonsRed();
+  } else if (buttonChange.value === "green") {
+    buttonsGreen();
+  } else if (buttonChange.value === "blue") {
+    buttonsBlue();
+  } else if (buttonChange.value === "yellow") {
+    buttonsYellow();
+  } else if (buttonChange.value === "reset") {
+    buttonsColorReset();
+  } else if (buttonChange.value === "random") {
+    randomColors();
+  }
+};
+
+const randomColors = () => {
+  for (let i = 0; i < all_buttons.length; i++) {
+    let possibleColors = Math.floor(Math.random() * all_colors.length);
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(all_colors[possibleColors]);
+
+    /*     let possibleColors = Math.floor(Math.random() * all_buttons.length);
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(copyAllButtons[possibleColors]); */
+  }
+};
+
+const buttonsColorReset = () => {
+  for (let i = 0; i < all_buttons.length; i++) {
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(copyAllButtons[i]);
+  }
+};
 
 const buttonsRed = () => {
-    for (let i = 0; i < all_buttons.length; i++) {
-        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
-        all_buttons[i].classList.add('btn-danger');
-    }
-}
+  for (let i = 0; i < all_buttons.length; i++) {
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(all_colors[0]);
+  }
+};
 
+const buttonsGreen = () => {
+  for (let i = 0; i < all_buttons.length; i++) {
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(all_colors[1]);
+  }
+};
 
+const buttonsYellow = () => {
+  for (let i = 0; i < all_buttons.length; i++) {
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(all_colors[2]);
+  }
+};
+
+const buttonsBlue = () => {
+  for (let i = 0; i < all_buttons.length; i++) {
+    all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+    all_buttons[i].classList.add(all_colors[3]);
+  }
+};
