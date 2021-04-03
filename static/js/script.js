@@ -349,22 +349,21 @@ document
   .addEventListener("click", blackjackHit);
 
 async function blackjackHit() {
-  if (YOU["score"] > 21) {
-    blackjackGame["turnsOver"] = true;
-    blackjackGame["isStand"] = true;
-    showResult(DEALER);
-    lossSound.play();
-  }
-
   if (
     blackjackGame["isStand"] === false &&
     blackjackGame["startCard"] === 2 &&
-    YOU["score"] !== 21
+    YOU["score"] < 21
   ) {
     let card = randomCard();
     showCard(card, YOU);
     updateScore(card, YOU);
     showScore(YOU);
+    if (YOU["score"] > 21) {
+      blackjackGame["turnsOver"] = true;
+      blackjackGame["isStand"] = false;
+      showResult(DEALER);
+      lossSound.play();
+    }
   }
 
   while (blackjackGame["isStand"] === false && blackjackGame["startCard"] < 1) {
@@ -373,7 +372,7 @@ async function blackjackHit() {
     showCard(card, YOU);
     updateScore(card, YOU);
     showScore(YOU);
-    await sleep(1200);
+    await sleep(600);
     showCard(cardDealer, DEALER);
     updateScore(cardDealer, DEALER);
     showScore(DEALER);
@@ -382,7 +381,7 @@ async function blackjackHit() {
 
   while (blackjackGame["isStand"] === false && blackjackGame["startCard"] < 2) {
     let card = randomCard();
-    await sleep(800);
+    await sleep(400);
     showCard(card, YOU);
     updateScore(card, YOU);
     showScore(YOU);
@@ -486,7 +485,11 @@ document
 async function blackjackStand() {
   blackjackGame["isStand"] = true;
 
-  while (DEALER["score"] < 17 && blackjackGame["isStand"] === true) {
+  while (
+    DEALER["score"] < 17 &&
+    blackjackGame["isStand"] === true &&
+    blackjackGame["turnsOver"] === false
+  ) {
     let card = randomCard();
     showCard(card, DEALER);
     updateScore(card, DEALER);
