@@ -382,7 +382,7 @@ async function blackjackHit() {
 
   while (blackjackGame["isStand"] === false && blackjackGame["startCard"] < 2) {
     let card = randomCard();
-    await sleep(1200);
+    await sleep(800);
     showCard(card, YOU);
     updateScore(card, YOU);
     showScore(YOU);
